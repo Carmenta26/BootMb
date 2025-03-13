@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "WhatsappNetApi.Controllers.WhatsappController",
+    "Method": "VeifyToken",
+    "RelativePath": "api/whatsapp",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WhatsappNetApi.Controllers.WhatsappController",
+    "Method": "ResivedMesagge",
+    "RelativePath": "api/whatsapp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "WhatsappNetApi.Controllers.Models.WhatsAppCloud.WhatsAppCloudModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WhatsappNetApi.Controllers.WhatsappController",
+    "Method": "Index",
+    "RelativePath": "api/whatsapp/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

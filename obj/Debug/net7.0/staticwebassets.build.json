@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "uhmDFyfRRLWwb5i/61vHtjPjKjpu1shDUlr6IigIWd4=",
+  "Source": "WhatsappNetApi",
+  "BasePath": "_content/WhatsappNetApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
