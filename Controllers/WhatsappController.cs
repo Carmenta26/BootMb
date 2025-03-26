@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WhatsappNetApi.Controllers.Models.WhatsAppCloud;
 using WhatsappNetApi.Controllers.Services.WhatsappCloud.SendMessges;
+using WhatsappNetApi.Util;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WhatsappNetApi.Controllers
 {
@@ -10,9 +12,11 @@ namespace WhatsappNetApi.Controllers
     public class WhatsappController : Controller
     {
         private readonly IWhatsappCloudeSendMessage _whatsappCloudeSendMessage;
-        public WhatsappController(IWhatsappCloudeSendMessage whatsappCloudeSendMessage)
+        private readonly IUtil _util;
+        public WhatsappController(IWhatsappCloudeSendMessage whatsappCloudeSendMessage, IUtil util)
         {
             _whatsappCloudeSendMessage = whatsappCloudeSendMessage;
+            _util = util;
         }
 
         [HttpGet("test")]
@@ -27,7 +31,7 @@ namespace WhatsappNetApi.Controllers
                    type = "text",
                    text = new 
                    { 
-                        body = "Hola App" 
+                        body = "Este es un mensaje de prueba" 
                    }
                };
 
@@ -39,7 +43,7 @@ namespace WhatsappNetApi.Controllers
         [HttpGet]
         public IActionResult VeifyToken()
         {
-            String AccessToken = "SSJDKHFJLSDFHDHFKL";
+            string AccessToken = "SSJDKHFJLSDFHDHFKL";
             var token = Request.Query["hub.verify_token"].ToString();
             var challenge = Request.Query["hub.challenge"].ToString();
 
@@ -53,27 +57,38 @@ namespace WhatsappNetApi.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> ResivedMesagge([FromBody] WhatsAppCloudModel body) 
-        {
-            try
-            {
-                var Message = body.Entry[0]?.Changes[0]?.Value?.Messages?[0];
-                if (Message != null) {
-                    var userNumber = Message.From;
-                    var UserText = GetUserText(Message);
-                }
+        //[HttpPost]
+        //public async Task<IActionResult> ResivedMesagge([FromBody] WhatsAppCloudModel body) 
+        //{
+        //    try
+        //    {
+        //        var Message = body.Entry[0]?.Changes[0]?.Value?.Messages?[0];
+        //        if (Message != null) {
+        //            var userNumber = Message.From;
+        //            var UserText = GetUserText(Message);
+
+        //            object objectMessage;
+
+        //            switch (UserText.ToUpper()) 
+        //            {
+        //                case "TEXT":
+        //                    objectMessage = 
+        //                        break;
+        //            }
+
+        //            await _whatsappCloudeSendMessage.Excecute(objectMessage);
+        //        }
                 
 
-                return Ok("EVENT_RECEIVED");
-            }
-            catch (Exception ex)
-            {
-                return Ok("EVENT_RECEIVED");
-            }
-        }
+        //        return Ok("EVENT_RECEIVED");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Ok("EVENT_RECEIVED");
+        //    }
+        //}
 
-        private String GetUserText(Message message)
+        private string GetUserText(Message message)
         {
             string TypeMessage = message.Type;
 

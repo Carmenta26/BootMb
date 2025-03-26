@@ -17,7 +17,7 @@ namespace WhatsappNetApi.Controllers.Services.WhatsappCloud.SendMessges
                 string endpoint = "https://graph.facebook.com";
                 string phoneNumberId = "535973906274084";
                 string accessToken = "EAAIGzGLqZAE8BO7Vs4UD37EDvEyngq8LIjga4KGj7tcUkd56CmijkZCS2sjX0GCh1qAmI9wlGBHruaC8Mpz4FqhIOtyCypUakchH4MCZBPxegZB6hYBlNldHiM4ZA7zQGnB1ZCaYhZBuVwm0C6wiptFvk1mUvkGZAXulqJuVqbd0XkxxNGY5jJsTzrlmeAXMb5LZBjAZDZD";
-                string uri = $"{endpoint}/v22.0/{phoneNumberId}messages";
+                string uri = $"{endpoint}/v22.0/{phoneNumberId}/messages";
 
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
