@@ -57,36 +57,44 @@ namespace WhatsappNetApi.Controllers
             }
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> ResivedMesagge([FromBody] WhatsAppCloudModel body) 
-        //{
-        //    try
-        //    {
-        //        var Message = body.Entry[0]?.Changes[0]?.Value?.Messages?[0];
-        //        if (Message != null) {
-        //            var userNumber = Message.From;
-        //            var UserText = GetUserText(Message);
+        [HttpPost]
+        public async Task<IActionResult> ResivedMesagge([FromBody] WhatsAppCloudModel body)
+        {
+            try
+            {
+                var Message = body.Entry[0]?.Changes[0]?.Value?.Messages?[0];
+                if (Message != null)
+                {
+                    var userNumber = Message.From;
+                    var UserText = GetUserText(Message);
 
-        //            object objectMessage;
+                    object objectMessage = null;
 
-        //            switch (UserText.ToUpper()) 
-        //            {
-        //                case "TEXT":
-        //                    objectMessage = 
-        //                        break;
-        //            }
+                    switch (UserText.ToUpper())
+                    {
+                        case "TEXT":
+                            objectMessage = _util.TextMessage("Este es un ejemplo de texto", userNumber);
+                                break;
 
-        //            await _whatsappCloudeSendMessage.Excecute(objectMessage);
-        //        }
-                
+                        default:
+                            objectMessage = _util.TextMessage("Lo siento no puedo entenderte", userNumber);
+                            break;
+                    }
 
-        //        return Ok("EVENT_RECEIVED");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Ok("EVENT_RECEIVED");
-        //    }
-        //}
+                    if (objectMessage != null)
+                    {
+                        await _whatsappCloudeSendMessage.Excecute(objectMessage);
+                    }
+                }
+
+
+                return Ok("EVENT_RECEIVED");
+            }
+            catch (Exception ex)
+            {
+                return Ok("EVENT_RECEIVED");
+            }
+        }
 
         private string GetUserText(Message message)
         {
