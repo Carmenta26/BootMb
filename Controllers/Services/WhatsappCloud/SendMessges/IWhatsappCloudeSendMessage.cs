@@ -1,7 +1,7 @@
 ﻿namespace WhatsappNetApi.Controllers.Services.WhatsappCloud.SendMessges
 {
-    public interface IWhatsappCloudeSendMessage
+    public interface IWhatsappCloudSendMessage
     {
-        Task<bool> Excecute(object model);
+        Task<bool> Execute(object model);
     }
 }

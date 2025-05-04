@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IWhatsappCloudeSendMessage, WhatsappCloudeSendMessage>();
-builder.Services.AddSingleton<IUtil, Utils>();
+builder.Services.AddSingleton<IWhatsappCloudSendMessage, WhatsappCloudSendMessage>();
+builder.Services.AddSingleton<IUtil, Util>();
 
 var app = builder.Build();
 

@@ -31,3 +31,5 @@ C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\bin\Debu
 C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\obj\Debug\net7.0\WhatsappNetApi.csproj.AssemblyReference.cache
 C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\obj\Debug\net7.0\WhatsappNetApi.sourcelink.json
 C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\obj\Debug\net7.0\Whatsapp.A460B2FC.Up2Date
+C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\CarlosArmenta\Documents\CARLOS\.NET\WhatsappNet\WhatsappNetApi\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

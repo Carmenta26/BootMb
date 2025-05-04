@@ -5,9 +5,9 @@ using System.Text;
 
 namespace WhatsappNetApi.Controllers.Services.WhatsappCloud.SendMessges
 {
-    public class WhatsappCloudeSendMessage : IWhatsappCloudeSendMessage
+    public class WhatsappCloudSendMessage : IWhatsappCloudSendMessage
     {
-        public async Task<bool> Excecute(object model) 
+        public async Task<bool> Execute(object model)
         {
             var client = new HttpClient();
             var byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
@@ -24,13 +24,12 @@ namespace WhatsappNetApi.Controllers.Services.WhatsappCloud.SendMessges
 
                 var response = await client.PostAsync(uri, content);
 
-                if (response.IsSuccessStatusCode) 
+                if (response.IsSuccessStatusCode)
                 {
-                    return true; 
+                    return true;
                 }
                 return false;
             }
-
         }
     }
 }
